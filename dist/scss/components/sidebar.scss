@@ -115,4 +115,8 @@
         font-size: 12px;
         letter-spacing: 0.12px;
     }
+
+    @media screen and (max-width: $breakpoint_md) {
+        display: none;
+    }
 }

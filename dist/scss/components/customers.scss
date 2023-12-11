@@ -110,7 +110,6 @@
         padding: 4px 12px;
         justify-content: center;
         align-items: center;
-        gap: 10px;
         border-radius: 4px;
     }
 
@@ -150,7 +149,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 10px;
         border-radius: 4px;
         border: 1px solid $light-border-color;
         background: $pagination-background-color;
@@ -181,5 +179,74 @@
         width: 100%;
         justify-content: center;
         align-items: center;
+    }
+
+    @media screen and (max-width: $breakpoint_md) {
+
+        &__heading {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 21px;
+        }
+        
+        &__list-wrap {
+            padding: 15px 20px 20px 19px;
+        }
+
+        &__list-heading {
+            font-size: 18px;
+            margin-bottom: 3px;
+        }
+
+        &__list-subheading {
+            font-size: 12px;
+            margin-bottom: 0;
+        }
+
+        &__search {
+            width: 216px;
+            height: 34px;
+            padding: 8px 8px 8px 38px;
+            margin-right: 0;
+        }
+
+        &__search-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        &__table-heading {
+            padding: 18px 12px 12px 0;
+            font-size: 12px;
+        }
+
+        &__table-data {
+            font-size: 12px;
+            padding: 10px 12px 10px 0;
+        }
+
+        &__status_active,
+        &__status_inactive {
+            padding: 2px 6px;
+        }
+
+        &__status_active {
+            width: 62px;
+        }
+
+        &__pagination-info {
+            font-size: 12px;
+        }
+
+        &__pagination-item,
+        &__pagination-item_active {
+            width: 22px;
+            height: 20px;
+            font-size: 10px;
+
+            &:not(:last-child) {
+                margin-right: 8px;
+            }
+        }
     }
 }
