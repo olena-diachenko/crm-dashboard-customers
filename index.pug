@@ -18,7 +18,7 @@ html(lang="en")
         link(rel="stylesheet", href="./styles/index.min.css")
     body
         main.dashboard
-            aside.sidebar
+            aside.sidebar(id='sidebar')
                 div.sidebar__header
                     +svg('dashboard__sidebar-logo')(class='sidebar__logo')
                     a.sidebar__heading Dashboard
@@ -36,39 +36,39 @@ html(lang="en")
                     div.sidebar__user-info
                         p.sidebar__user-name Evano
                         p.sidebar__user-position Project Manager
-            button.burger(id="header__burger")
-                span.burger__inner
-            div.customers
-                    h2.customers__heading Hello Evano 👋🏼,
-                    .customers__list-wrap
-                        .customers__list-header
-                            div
-                                h3.customers__list-heading All Customers
-                                p.customers__list-subheading Active Members
-                            .customers__search-wrap
-                                input.customers__search(type='search', placeholder='Search')
-                                +svg('search-icon')(class='customers__search-icon')
-                        table.customers__list
-                            thead
+            button.burger(id="burger")
+                span.burger__inner(id="burger-inner")
+            section.customers
+                h2.customers__heading Hello Evano 👋🏼,
+                .customers__list-wrap
+                    .customers__list-header
+                        div
+                            h3.customers__list-heading All Customers
+                            p.customers__list-subheading Active Members
+                        .customers__search-wrap
+                            input.customers__search(type='search', placeholder='Search')
+                            +svg('search-icon')(class='customers__search-icon')
+                    table.customers__list
+                        thead
+                            tr.customers__table-row
+                                each item in tableHeaders
+                                    th.customers__table-heading #{item}
+                        tbody
+                            each value in customers
                                 tr.customers__table-row
-                                    each item in tableHeaders
-                                        th.customers__table-heading #{item}
-                            tbody
-                                each value in customers
-                                    tr.customers__table-row
-                                        td.customers__table-data #{value.name}
-                                        td.customers__table-data #{value.company}
-                                        td.customers__table-data #{value.phone}
-                                        td.customers__table-data #{value.email}
-                                        td.customers__table-data #{value.country}
-                                        td.customers__table-data
-                                            if value.active
-                                                .customers__status_active Active
-                                            else
-                                                .customers__status_inactive Inactive
-                        .customers__footer
-                            p.customers__pagination-info Showing data 1 to 8 of 256K entries
-                            div
+                                    td.customers__table-data #{value.name}
+                                    td.customers__table-data #{value.company}
+                                    td.customers__table-data #{value.phone}
+                                    td.customers__table-data #{value.email}
+                                    td.customers__table-data #{value.country}
+                                    td.customers__table-data
+                                        if value.active
+                                            .customers__status_active Active
+                                        else
+                                            .customers__status_inactive Inactive
+                    .customers__footer
+                        p.customers__pagination-info Showing data 1 to 8 of 256K entries
+                        div
                                 ul
                                     li.customers__pagination-item 
                                         a.customers__pagination-link &lt;
@@ -85,3 +85,4 @@ html(lang="en")
                                         a.customers__pagination-link 40
                                     li.customers__pagination-item
                                         a.customers__pagination-link &gt;
+        script(src='./js/script.js')
