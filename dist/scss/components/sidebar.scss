@@ -1,0 +1,118 @@
+@import "../common/colors.scss";
+@import "../common/breakpoints";
+@import "../common/fonts.scss";
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    padding: 36px 28px 76px;
+    width: 306px;
+    background-color: $light-background-color;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 54px;
+    }
+
+    &__logo {
+        width: 37px;
+        height: 37px;
+        margin-right: 8px;
+    }
+
+    &__heading {
+        color: #000;
+        font-size: 26px;
+        font-weight: 600;
+        letter-spacing: 0.26px;
+    }
+
+    &__version {
+        display: inline-block;
+        margin-left: 4px;
+        color: #838383;
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: -0.1px;
+    }
+
+    &__item {
+        width: 250px;
+        height: 46px;
+        border-radius: 8px;
+        font-size: 14px;
+        letter-spacing: -0.14px;
+        padding: 11px 8px 11px 11px;
+        color: $nav-text-color;
+
+        &:not(:last-child) {
+            margin-bottom: 18px;
+        }
+    }
+
+    &__item_active {
+        width: 250px;
+        height: 46px;
+        border-radius: 8px;
+        padding: 11px 8px 11px 11px;
+        font-size: 14px;
+        letter-spacing: -0.14px;
+        color: $light-text-color;
+        background: $active-background-color;
+        margin-bottom: 17px;
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+    }
+
+    &__icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 14px;
+
+    }
+
+    &__chevron {
+        width: 16px;
+        height: 16px;
+        margin-left: auto;
+        stroke: $nav-text-color;
+    }
+
+    &__chevron_active {
+        stroke: $light-background-color;
+    }
+
+    &__chevron_transp {
+        stroke: none;
+    }
+
+    &__user {
+        display: flex;
+        margin-top: auto;
+    }
+
+    &__user-logo {
+        width: 42px;
+        height: 42px;
+        flex-shrink: 0;
+        border-radius: 42px;
+        background: url('../../assets/images/user-logo.png'), lightgray 50% / cover no-repeat;
+        margin-right: 12px;
+    }
+
+    &__user-name {
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.14px;
+    }
+
+    &__user-position {
+        color: $dark-second-text-color;
+        font-size: 12px;
+        letter-spacing: 0.12px;
+    }
+}

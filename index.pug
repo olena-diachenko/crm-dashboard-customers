@@ -1,8 +1,85 @@
+include mixin
+include variables
+
+
 doctype html
 html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title CRM Dashboard Customers
+        link(rel='apple-touch-icon' sizes='180x180' href='./assets/favicon_io/apple-touch-icon.png')
+        link(rel='icon' type='image/png' sizes='32x32' href='./assets/favicon_io/favicon-32x32.png')
+        link(rel='icon' type='image/png' sizes='16x16' href='./assets/favicon_io/favicon-16x16.png')
+        link(rel='manifest' href='./assets/favicon_io/site.webmanifest')
+        link(rel="preconnect", href="https://fonts.googleapis.com")
+        link(rel="preconnect", href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet")
         link(rel="stylesheet", href="./styles/index.min.css")
     body
+        main.dashboard
+            aside.sidebar
+                div.sidebar__header
+                    +svg('dashboard__sidebar-logo')(class='sidebar__logo')
+                    a.sidebar__heading Dashboard
+                        span.sidebar__version v.01
+                nav.sidebar__menu
+                    ul.sidebar__list
+                        each item in menuItems
+                            li(class=item.class)
+                                a.sidebar__link
+                                    +svg(item.iconId)(class='sidebar__icon')
+                                    |#{item.name}
+                                    +svg('chevron-icon')(class=`sidebar__chevron ${item.chevronClass}`)
+                div.sidebar__user
+                    div.sidebar__user-logo
+                    div.sidebar__user-info
+                        p.sidebar__user-name Evano
+                        p.sidebar__user-position Project Manager
+            div.customers
+                    h2.customers__heading Hello Evano 👋🏼,
+                    .customers__list-wrap
+                        .customers__list-header
+                            div
+                                h3.customers__list-heading All Customers
+                                p.customers__list-subheading Active Members
+                            .customers__search-wrap
+                                input.customers__search(type='search', placeholder='Search')
+                                +svg('search-icon')(class='customers__search-icon')
+                        table.customers__list
+                            thead
+                                tr.customers__table-row
+                                    each item in tableHeaders
+                                        th.customers__table-heading #{item}
+                            tbody
+                                each value in customers
+                                    tr.customers__table-row
+                                        td.customers__table-data #{value.name}
+                                        td.customers__table-data #{value.company}
+                                        td.customers__table-data #{value.phone}
+                                        td.customers__table-data #{value.email}
+                                        td.customers__table-data #{value.country}
+                                        td.customers__table-data
+                                            if value.active
+                                                .customers__status_active Active
+                                            else
+                                                .customers__status_inactive Inactive
+                        .customers__footer
+                            p.customers__pagination-info Showing data 1 to 8 of 256K entries
+                            div
+                                ul
+                                    li.customers__pagination-item 
+                                        a.customers__pagination-link &lt;
+                                    li.customers__pagination-item_active
+                                        a.customers__pagination-link 1
+                                    li.customers__pagination-item
+                                        a.customers__pagination-link 2
+                                    li.customers__pagination-item
+                                        a.customers__pagination-link 3
+                                    li.customers__pagination-item
+                                        a.customers__pagination-link 4
+                                    li.customers__pagination-item ...
+                                    li.customers__pagination-item
+                                        a.customers__pagination-link 40
+                                    li.customers__pagination-item
+                                        a.customers__pagination-link &gt;
