@@ -148,7 +148,7 @@ body {
   .burger.open {
     position: absolute;
     top: 48px;
-    left: 230px;
+    left: 260px;
   }
   .burger.open::before {
     -webkit-transform: rotate(45deg);
@@ -304,6 +304,7 @@ body {
     -webkit-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
+    overflow: auto;
   }
   .sidebar__header {
     margin-bottom: 34px;
