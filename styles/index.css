@@ -273,7 +273,7 @@ body {
   -ms-flex-negative: 0;
       flex-shrink: 0;
   border-radius: 42px;
-  background: url("../../assets/images/user-logo.jpg"), lightgray 50%/cover no-repeat;
+  background: url("../assets/images/user-logo.jpg"), lightgray 50%/cover no-repeat;
   margin-right: 12px;
 }
 .sidebar__user-name {
