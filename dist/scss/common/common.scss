@@ -20,17 +20,19 @@ body {
 
 .dashboard {
     display: flex;
+
+    @media screen and (max-width: $breakpoint_md) {
+        display: block;
+    }
 }
 
 .burger {
     display: none;
-}
 
-@media screen and (max-width: $breakpoint_md) {
-    .burger {
+    @media screen and (max-width: $breakpoint_md) {
         position: relative;
-        top: 47px;
-        left: 35px;
+        top: 65px;
+        left: 21px;
         z-index: 2;
         width: 30px;
         height: 18px;
@@ -38,7 +40,6 @@ body {
         flex-direction: column;
         justify-content: space-between;
         align-items: end;
-        transition: all 0.2s ease;
 
         &::before {
             content: "";
@@ -72,7 +73,7 @@ body {
         &.open {
             position: absolute;
             top: 48px;
-            left: 300px;
+            left: 230px;
 
             &::before {
                 transform: rotate(45deg);
@@ -80,7 +81,7 @@ body {
                 top: 12px;
                 width: 20px;
             }
-        
+
             &::after {
                 transform: rotate(-45deg);
                 width: 20px;
@@ -88,5 +89,10 @@ body {
                 bottom: 15px;
             }
         }
+    }
+
+    @media screen and (max-width: $breakpoint_sm) {
+        top: 46px;
+        left: 10px;
     }
 }

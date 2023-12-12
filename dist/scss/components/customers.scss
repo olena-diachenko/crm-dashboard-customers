@@ -78,7 +78,6 @@
 
     &__table-row {
         border-bottom: 1px solid $light-border-color;
-        text-align: left;
     }
 
     &__table-heading {
@@ -87,6 +86,7 @@
         font-size: 14px;
         font-weight: 500;
         letter-spacing: -0.14px;
+        text-align: left;
 
         &:last-of-type {
             text-align: center;
@@ -99,6 +99,7 @@
         font-weight: 500;
         letter-spacing: -0.14px;
         padding: 18px 0;
+        text-align: left;
 
         &:last-of-type {
             text-align: end;
@@ -126,6 +127,10 @@
         color: $inactive-text-color;
         border: 1px solid $inactive-border-color;
         background: $inactive-background-color;
+    }
+
+    &__card-wrap {
+        display: none;
     }
 
     &__footer {
@@ -247,6 +252,69 @@
             &:not(:last-child) {
                 margin-right: 8px;
             }
+        }
+    }
+
+    @media screen and (max-width: $breakpoint_sm) {
+        padding: 21px 21px 21px 41px;
+
+        &__list {
+            display: none;
+        }
+
+        &__heading {
+            text-align: center;
+        }
+
+        &__list-header {
+            flex-direction: column;
+            margin-bottom: 25px;
+        }
+
+        &__list-heading-wrap {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        &__card-wrap {
+            display: block;
+            border: 1px solid $light-border-color;
+            margin-bottom: 10px;
+            border-radius: 2%;
+        }
+
+        &__card {
+            padding: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &__card-heading {
+            color: $second-text-color;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: -0.14px;
+        }
+
+        &__card-data {
+            color: $list-text-color;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: -0.14px;
+            text-align: end;
+        }
+
+        &__footer {
+            flex-direction: column;
+        }
+
+        &__pagination-info {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        &__pagination-list {
+           text-align: center;
         }
     }
 }

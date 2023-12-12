@@ -17,59 +17,73 @@ html(lang="en")
         link(href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet")
         link(rel="stylesheet", href="./styles/index.min.css")
     body
-        main.dashboard
-            aside.sidebar(id='sidebar')
-                div.sidebar__header
-                    +svg('dashboard__sidebar-logo')(class='sidebar__logo')
-                    a.sidebar__heading Dashboard
-                        span.sidebar__version v.01
-                nav.sidebar__menu
-                    ul.sidebar__list
-                        each item in menuItems
-                            li(class=item.class)
-                                a.sidebar__link
-                                    +svg(item.iconId)(class='sidebar__icon')
-                                    |#{item.name}
-                                    +svg('chevron-icon')(class=`sidebar__chevron ${item.chevronClass}`)
-                div.sidebar__user
-                    div.sidebar__user-logo
-                    div.sidebar__user-info
-                        p.sidebar__user-name Evano
-                        p.sidebar__user-position Project Manager
-            button.burger(id="burger")
-                span.burger__inner(id="burger-inner")
-            section.customers
-                h2.customers__heading Hello Evano 👋🏼,
-                .customers__list-wrap
-                    .customers__list-header
-                        div
-                            h3.customers__list-heading All Customers
-                            p.customers__list-subheading Active Members
-                        .customers__search-wrap
-                            input.customers__search(type='search', placeholder='Search')
-                            +svg('search-icon')(class='customers__search-icon')
-                    table.customers__list
-                        thead
-                            tr.customers__table-row
-                                each item in tableHeaders
-                                    th.customers__table-heading #{item}
-                        tbody
-                            each value in customers
+        main
+            div.dashboard
+                aside.sidebar(id='sidebar')
+                    div.sidebar__header
+                        +svg('dashboard__sidebar-logo')(class='sidebar__logo')
+                        a.sidebar__heading Dashboard
+                            span.sidebar__version v.01
+                    nav.sidebar__menu
+                        ul.sidebar__list
+                            each item in menuItems
+                                li(class=item.class)
+                                    a.sidebar__link
+                                        +svg(item.iconId)(class='sidebar__icon')
+                                        |#{item.name}
+                                        +svg('chevron-icon')(class=`sidebar__chevron ${item.chevronClass}`)
+                    div.sidebar__user
+                        div.sidebar__user-logo
+                        div.sidebar__user-info
+                            p.sidebar__user-name Evano
+                            p.sidebar__user-position Project Manager
+                button.burger(id="burger")
+                    span.burger__inner(id="burger__inner")
+                section.customers
+                    h2.customers__heading Hello Evano 👋🏼,
+                    .customers__list-wrap
+                        .customers__list-header
+                            div.customers__list-heading-wrap
+                                h3.customers__list-heading All Customers
+                                p.customers__list-subheading Active Members
+                            .customers__search-wrap
+                                input.customers__search(type='search', placeholder='Search')
+                                +svg('search-icon')(class='customers__search-icon')
+                        table.customers__list
+                            thead
                                 tr.customers__table-row
-                                    td.customers__table-data #{value.name}
-                                    td.customers__table-data #{value.company}
-                                    td.customers__table-data #{value.phone}
-                                    td.customers__table-data #{value.email}
-                                    td.customers__table-data #{value.country}
-                                    td.customers__table-data
-                                        if value.active
-                                            .customers__status_active Active
-                                        else
-                                            .customers__status_inactive Inactive
-                    .customers__footer
-                        p.customers__pagination-info Showing data 1 to 8 of 256K entries
-                        div
-                                ul
+                                    each item in tableHeaders
+                                        th.customers__table-heading #{item}
+                            tbody
+                                each value in customers
+                                    tr.customers__table-row
+                                        td.customers__table-data #{value.name}
+                                        td.customers__table-data #{value.company}
+                                        td.customers__table-data #{value.phone}
+                                        td.customers__table-data #{value.email}
+                                        td.customers__table-data #{value.country}
+                                        td.customers__table-data
+                                            if value.active
+                                                .customers__status_active Active
+                                            else
+                                                .customers__status_inactive Inactive
+                        each customer in customers
+                            .customers__card-wrap
+                                each headerName, index in headerNames
+                                    .customers__card
+                                        p.customers__card-heading= tableHeaders[index]
+                                        .customers__card-data
+                                            if tableHeaders[index] === 'Status'
+                                                if customer[headerName] === true
+                                                    .customers__status_active Active
+                                                else
+                                                    .customers__status_inactive Inactive
+                                            else
+                                                | #{customer[headerName]}       
+                        .customers__footer
+                            p.customers__pagination-info Showing data 1 to 8 of 256K entries
+                            div
+                                ul.customers__pagination-list
                                     li.customers__pagination-item 
                                         a.customers__pagination-link &lt;
                                     li.customers__pagination-item_active

@@ -2,7 +2,7 @@
 
 const body = document.querySelector('body');
 const burger = document.getElementById('burger');
-const burgerInner = document.getElementById('burger-inner');
+const burgerInner = document.getElementById('burger__inner');
 const sidebar = document.getElementById('sidebar');
 
 const clickhandler = () => { 
